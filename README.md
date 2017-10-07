@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/PixelShareInc/API/badges/gpa.svg)](https://codeclimate.com/github/PixelShareInc/API)
 [![Issue Count](https://codeclimate.com/github/PixelShareInc/API/badges/issue_count.svg)](https://codeclimate.com/github/PixelShareInc/API)
 [![Dependencies Status](https://david-dm.org/PixelShareInc/API.svg)](https://david-dm.org/PixelShareInc/API)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FPixelShareInc%2Fpixelshare.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FPixelShareInc%2Fpixelshare?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FPixelShareInc%2FAPI.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FPixelShareInc%2FAPI?ref=badge_shield)
 
 ---
 
