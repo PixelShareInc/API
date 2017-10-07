@@ -1,11 +1,11 @@
 # [PixelShare API](https://github.com/PixelShareInc/API "PixelShare API")
 
-<!-- [![Build Status](https://travis-ci.org/PixelShareInc/pixelshare.svg?branch=master)](https://travis-ci.org/PixelShareInc/pixelshare)
+[![Build Status](https://travis-ci.org/PixelShareInc/API.svg?branch=master)](https://travis-ci.org/PixelShareInc/API)
 [![GitHub release](https://img.shields.io/github/release/PixelShareInc/pixelshare.svg)]()
-[![Code Climate](https://codeclimate.com/github/PixelShareInc/pixelshare/badges/gpa.svg)](https://codeclimate.com/github/PPixelShareInc/pixelshare)
-[![Issue Count](https://codeclimate.com/github/PixelShareInc/pixelshare/badges/issue_count.svg)](https://codeclimate.com/github/PixelShareInc/pixelshare)
-[![Dependencies Status](https://david-dm.org/PixelShareInc/pixelshare.svg)](https://david-dm.org/PixelShareInc/pixelshare)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FPixelShareInc%2Fpixelshare.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FPixelShareInc%2Fpixelshare?ref=badge_shield) -->
+[![Code Climate](https://codeclimate.com/github/PixelShareInc/API/badges/gpa.svg)](https://codeclimate.com/github/PixelShareInc/API)
+[![Issue Count](https://codeclimate.com/github/PixelShareInc/API/badges/issue_count.svg)](https://codeclimate.com/github/PixelShareInc/API)
+[![Dependencies Status](https://david-dm.org/PixelShareInc/API.svg)](https://david-dm.org/PixelShareInc/API)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FPixelShareInc%2Fpixelshare.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FPixelShareInc%2Fpixelshare?ref=badge_shield)
 
 ---
 
