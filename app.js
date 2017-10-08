@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const fs = require('fs');
 const svg2png = require('svg2png');
 
 const MongoClient = require('mongodb').MongoClient;
@@ -15,7 +14,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use(express.static('/'));
 
 app.get('/', (req, res) => {
     MongoClient.connect(url, (err, db) => {
@@ -41,17 +39,15 @@ app.get('/image', (req, res) => {
 
             Promise.resolve()
             .then(() => {
-                for(let r = 0; r < 1; r++){
-                    for(let b = 0; b < 100; b++){
-                        for(let row = 0; row < 50; row++){
-                            let rowColors = result[iterator].color.split(',');
+                for(let b = 0; b < 100; b++){
+                    for(let row = 0; row < 50; row++){
+                        let rowColors = result[iterator].color.split(',');
 
-                            for(let col = 0; col < 50; col++){
-                                svg += getSVG(r, b, row, col, rowColors[col]);
-                            }
-
-                            iterator++;
+                        for(let col = 0; col < 50; col++){
+                            svg += getSVG(b, row, col, rowColors[col]);
                         }
+
+                        iterator++;
                     }
                 }
             })
@@ -65,14 +61,10 @@ app.get('/image', (req, res) => {
     });
 });
 
-function getSVG(r, b, row, col, color){
-    let x = ((r % 3) * 500)
-        + ((b % 10) * 50)
-        + col;
+function getSVG(b, row, col, color){
+    let x = ((b % 10) * 50) + col;
 
-    let y = (Math.floor(r / 3) * 500)
-        + (Math.floor(b / 10) * 50)
-        + row;
+    let y = (Math.floor(b / 10) * 50) + row;
 
     return `<rect x="${x}" y="${y}" width="1" height="1" fill="#${color}" stroke-width="0" />`;
 }

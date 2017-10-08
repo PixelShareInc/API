@@ -8,18 +8,15 @@ const colors = [
 let select;
 
 function createSeed() {
-    for(let r = 0; r < 6; r++){
-        for(let b = 0; b < 100; b++){
-            for(let row = 0; row < 50; row++){
-                select = row % 2;
+    for(let b = 0; b < 100; b++){
+        for(let row = 0; row < 50; row++){
+            select = row % 2;
 
-                quilt.push({
-                    region_id: r,
-                    block_id: b,
-                    row_id: row,
-                    color: colors[select]
-                });
-            }
+            quilt.push({
+                block_id: b,
+                row_id: row,
+                color: colors[select]
+            });
         }
     }
 }
@@ -39,4 +36,4 @@ function seedDB() {
 Promise.resolve()
     .then(() => createSeed())
     .then(() => seedDB())
-    .catch(err => console.error(new Error(err)));
+    .catch(err => console.error(err));

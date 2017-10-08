@@ -9,5 +9,5 @@ MongoClient.connect(url, (err, db) => {
     .then(() => db.collection('changes').drop())
     .then(() => console.log('Changes collection dropped!'))
     .then(() => db.close())
-    .catch(err => console.error(new Error(err)));
+    .catch(err => console.error(err));
 });
