@@ -3,7 +3,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const svg2png = require('svg2png');
-
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost/pixelshare';
 
@@ -28,7 +27,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/image', (req, res) => {
-    let svg = '<svg width="500" height="500" xmlns="https://www.w3.org/2000/svg" version="2">';
+    let svg = '<svg width="500" height="500" xmlns="https://www.w3.org/2000/svg" version="2" viewBox="0 0 500 500">';
     let iterator = 0;
 
     MongoClient.connect(url, (err, db) => {
@@ -52,7 +51,7 @@ app.get('/image', (req, res) => {
                 }
                 svg += '</svg>';
             })
-            .then(() => svg2png(svg))
+            .then(() => svg2png(svg, { width: 3000, height: 3000 }))
             .then(buffer => res.send(buffer))
             .catch(err => console.error(err));
 
@@ -68,9 +67,5 @@ function getSVG(b, row, col, color){
 
     return `<rect x="${x}" y="${y}" width="1" height="1" fill="#${color}" stroke-width="0" />`;
 }
-
-app.get('/test', (req, res) => {
-    res.send('Test route working');
-});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
