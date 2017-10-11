@@ -1,3 +1,5 @@
+![PixelShare](readme-src/banner.png)
+
 # [PixelShare API](https://github.com/PixelShareInc/API "PixelShare API")
 
 [![Build Status](https://travis-ci.org/PixelShareInc/API.svg?branch=master)](https://travis-ci.org/PixelShareInc/API)
@@ -27,18 +29,46 @@ $ brew install node
 $ brew install git
 ```
 
-Then, navigate into the directory where you want to clone the repository and enter:
+Ensure that you have MongoDB installed:
 
 ```
-$ git clone https://www.github.com/PixelShareInc/API
+$ mongod --version
 ```
 
-Finally, navigate into the repository directory and install dependencies and run the development server:
+If you don't have MongoDB installed, either follow the [instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/) on their website, or install using brew with [Treehouse](https://treehouse.github.io/installation-guides/mac/mongo-mac.html).
+
+Once you've installed MongoDB, in a separate terminal window, start the service:
+
+```
+$ mongod
+```
+
+Then, in your original terminal window, navigate into the directory where you want to clone the repository and enter:
+
+```
+$ git clone https://www.github.com/PixelShareInc/API.git
+```
+
+Navigate into the repository directory and install dependencies:
 
 ```
 $ npm install
+```
+
+Then create the `pixelshare` database, collections, and documents:
+
+```
+$ node db/migrate.js
+$ node db/seed.js
+```
+
+Finally start the API server by running:
+
+```
 $ npm start
 ```
+
+As it says in the terminal, the PixelShare development API is now available at `localhost:3001`
 
 ## <a name="Resources"><a>Community Resources
 
