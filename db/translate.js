@@ -1,32 +1,15 @@
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost/pixelshare';
 
-const current = require('./oldquilt');
+const currentQuilt = require('./oldquilt');
 
-let oldQuilt = [];
 let bigQuilt = [];
 let newQuilt = [];
 let iterator = 0;
 
 Promise.resolve()
 .then(() => {
-    for(let y = 0; y < 8; y++) {
-        oldQuilt.push([]);
-
-        for(let x = 0; x < 8; x++) {
-            oldQuilt[y].push([]);
-
-            for(let row = 1; row <= 32; row++) {
-                let key = 'row_' + row;
-                oldQuilt[y][x].push(current.data[iterator][key]);
-            }
-
-            iterator++;
-        }
-    }
-})
-.then(() => {
-    for(let i = 0; i < 500; i++) {
+    for(let row = 0; row < 500; row++) {
         bigQuilt.push(['']);
     }
 })
@@ -34,9 +17,13 @@ Promise.resolve()
     for(let y = 0; y < 8; y++) {
         for(let x = 0; x < 8; x++) {
             for(let row = 0; row < 32; row++) {
+                let key = 'row_' + (row + 1);
                 let loc = (y * 32) + row;
-                bigQuilt[loc] += oldQuilt[y][x][row];
+
+                bigQuilt[loc] += currentQuilt.data[iterator][key];
             }
+
+            iterator++;
         }
     }
 })

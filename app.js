@@ -50,8 +50,8 @@ app.get('/image', (req, res) => {
                         iterator++;
                     }
                 }
+                svg += '</svg>';
             })
-            .then(() => svg += '</svg>')
             .then(() => svg2png(svg))
             .then(buffer => res.send(buffer))
             .catch(err => console.error(err));
