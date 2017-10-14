@@ -9,6 +9,8 @@ const url = 'mongodb://localhost/pixelshare';
 const port = process.env.PORT || 3001;
 
 const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -68,4 +70,30 @@ function getSVG(b, row, col, color){
     return `<rect x="${x}" y="${y}" width="1" height="1" fill="#${color}" stroke-width="0" />`;
 }
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+io.on('connection', socket => {
+    console.log(socket.id + ' connected!');
+    console.log('IP address: ' + socket.request.connection.remoteAddress);
+
+    socket.on('clientUpdate', (doc, b, row, col, newColors) => {
+        io.emit('serverUpdate', doc, b, row, col, newColors);
+
+        MongoClient.connect(url, (err, db) => {
+            if(err) throw err;
+
+            let query = { block_id: b, row_id: row };
+            newColors = { $set: { color: newColors } };
+
+            db.collection('quilt').update(query, newColors)
+            .then(result => {
+                let now = new Date();
+
+                console.log(`${now.toString()}:  Updated pixel at block ${b}, row ${row}, column ${col}`);
+
+                db.close();
+            })
+            .catch(err => console.error(err));
+        });
+    });
+});
+
+server.listen(port, () => console.log(`Listening on port ${port}`));
