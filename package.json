@@ -17,6 +17,7 @@
         "body-parser": "^1.18.2",
         "cors": "^2.8.4",
         "express": "^4.16.1",
+        "forever": "^0.15.3",
         "mongodb": "^2.2.31",
         "svg2png": "^4.1.1"
     }
