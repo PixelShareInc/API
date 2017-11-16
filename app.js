@@ -75,8 +75,7 @@ function getSVG(b, row, col, color){
 }
 
 io.on('connection', socket => {
-    console.log(socket.id + ' connected!');
-    console.log('IP address: ' + socket.request.connection.remoteAddress);
+    console.log('Connect from IP address: ' + socket.request.connection.remoteAddress);
 
     socket.on('clientUpdate', (doc, b, row, col, newColors) => {
         io.emit('serverUpdate', doc, b, row, col, newColors);
@@ -93,7 +92,7 @@ io.on('connection', socket => {
             .then(result => {
                 let now = new Date();
 
-                console.log(`${now.toString()}:  Updated pixel at block ${b}, row ${row}, column ${col}`);
+                console.log(`${now.toString()}:  ${socket.request.connection.remoteAddress} Updated pixel at block ${b}, row ${row}, column ${col}`);
 
                 db.close();
             })
