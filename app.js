@@ -86,7 +86,7 @@ io.on('connection', socket => {
             .then(result => {
                 let now = new Date();
 
-                console.log(`${now.toString()}:  ${socket.request.connection.remoteAddress.slice(7)} Updated pixel at block ${b}, row ${row}, column ${col}`);
+                console.log(`${now.toString()}:  ${socket.request.connection.remoteAddress.slice(7)} updated pixel at block ${b}, row ${row}, column ${col}`);
 
                 db.close();
             })
