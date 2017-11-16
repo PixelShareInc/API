@@ -28,10 +28,6 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/test', (req, res) => {
-    res.send('Test route successful');
-});
-
 app.get('/image', (req, res) => {
     let svg = '<svg width="500" height="500" xmlns="https://www.w3.org/2000/svg" version="2" viewBox="0 0 500 500">';
     let iterator = 0;
@@ -75,12 +71,10 @@ function getSVG(b, row, col, color){
 }
 
 io.on('connection', socket => {
-    console.log('Connect from IP address: ' + socket.request.connection.remoteAddress);
+    console.log('Connect from IP address: ' + socket.request.connection.remoteAddress.slice(7));
 
     socket.on('clientUpdate', (doc, b, row, col, newColors) => {
         io.emit('serverUpdate', doc, b, row, col, newColors);
-
-        console.log(url);
 
         MongoClient.connect(url, (err, db) => {
             if(err) throw err;
@@ -92,7 +86,7 @@ io.on('connection', socket => {
             .then(result => {
                 let now = new Date();
 
-                console.log(`${now.toString()}:  ${socket.request.connection.remoteAddress} Updated pixel at block ${b}, row ${row}, column ${col}`);
+                console.log(`${now.toString()}:  ${socket.request.connection.remoteAddress.slice(7)} Updated pixel at block ${b}, row ${row}, column ${col}`);
 
                 db.close();
             })
