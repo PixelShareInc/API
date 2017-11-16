@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost/pixelshare';
+const url = process.env.DBURL || 'mongodb://localhost/pixelshare';
 
 MongoClient.connect(url, (err, db) => {
     if(err) console.error(err);

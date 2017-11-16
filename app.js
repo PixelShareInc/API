@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const svg2png = require('svg2png');
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost/pixelshare';
+const url = process.env.DBURL || 'mongodb://localhost/pixelshare';
 
 const port = process.env.PORT || 3001;
 
