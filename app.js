@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/test', (req, res) => {
+    res.send('Test route successful');
+});
+
 app.get('/image', (req, res) => {
     let svg = '<svg width="500" height="500" xmlns="https://www.w3.org/2000/svg" version="2" viewBox="0 0 500 500">';
     let iterator = 0;
