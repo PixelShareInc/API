@@ -81,6 +81,8 @@ io.on('connection', socket => {
     socket.on('clientUpdate', (doc, b, row, col, newColors) => {
         io.emit('serverUpdate', doc, b, row, col, newColors);
 
+        console.log(url);
+
         MongoClient.connect(url, (err, db) => {
             if(err) throw err;
 
