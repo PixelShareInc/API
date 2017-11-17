@@ -11,7 +11,7 @@
 
 ---
 
-**PixelShare** is a simple and easy-to-use amalgamated art project. Users can access the quilt without login and can add their own pixel art to it. The API uses a [NodeJS](https://nodejs.org) back end with [Express](https://expressjs.com) and [MongoDB](https://mongodb.com).  
+**PixelShare** is a simple and easy-to-use amalgamated art project inspired by [Jordan Fred](https://github.com/JCFred). Users can access the quilt without login and can add their own pixel art to it. The API uses a [NodeJS](https://nodejs.org) back end with [Express](https://expressjs.com) and [MongoDB](https://mongodb.com).  
 
 ## Table of contents
 
