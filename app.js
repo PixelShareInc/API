@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-setInterval(() => writeImage(), 20000);
+setInterval(() => writeImage(), 300000);
 
 app.get('/', (req, res) => {
     MongoClient.connect(url, (err, db) => {
