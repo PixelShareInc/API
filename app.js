@@ -106,7 +106,7 @@ function writeImage() {
                 }
                 svg += '</svg>';
             })
-            .then(() => svg2png(svg, { width: 3000, height: 3000 }))
+            .then(() => svg2png(svg, { width: 1000, height: 1000 }))
             .then(buffer => fs.writeFile("quilt.png", buffer, err => {
                 if(err) throw err;
             }))
