@@ -33,9 +33,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/image', (req, res) => {
-    fs.stat('./quilt.svg', (err, stat) => {
+    fs.stat('./quilt.png', (err, stat) => {
         if(!err) {
-            fs.readFile('./quilt.svg', (err, data) => {
+            fs.readFile('./quilt.png', (err, data) => {
                 if(err) throw err;
 
                 res.send(data);
@@ -106,11 +106,8 @@ function writeImage() {
                 }
                 svg += '</svg>';
             })
-            // .then(() => svg2png(svg, { width: 1000, height: 1000 }))
-            // .then(buffer => fs.writeFile("quilt.png", buffer, err => {
-            //     if(err) throw err;
-            // }))
-            .then(buffer => fs.writeFile("quilt.svg", svg, err => {
+            .then(() => svg2png(svg, { width: 1000, height: 1000 }))
+            .then(buffer => fs.writeFile("quilt.png", buffer, err => {
                 if(err) throw err;
             }))
             .catch(err => console.error(err));
