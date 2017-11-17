@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
+writeImage();
 setInterval(() => writeImage(), 300000);
 
 app.get('/', (req, res) => {
@@ -32,10 +33,18 @@ app.get('/', (req, res) => {
 });
 
 app.get('/image', (req, res) => {
-    fs.readFile('./quilt.png', (err, data) => {
-        if(err) throw err;
+    fs.stat('./quilt.png', (err, stat) => {
+        if(!err) {
+            fs.readFile('./quilt.png', (err, data) => {
+                if(err) throw err;
 
-        res.send(data);
+                res.send(data);
+            });
+        } else if(err.code == 'ENOENT') {
+            res.send(null);
+        } else {
+            res.send(null);
+        }
     });
 });
 
