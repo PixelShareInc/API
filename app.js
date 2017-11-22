@@ -44,6 +44,18 @@ app.get('/image', (req, res) => {
     });
 });
 
+app.get('/quilt', (req, res) => {
+    MongoClient.connect(url, (err, db) => {
+        if(err) throw err;
+
+        db.collection('quilt').find({}).toArray((err, result) => {
+            if(err) throw err;
+            res.json(result);
+            db.close();
+        });
+    });
+});
+
 function getSVG(b, row, col, color){
     let x = ((b % 10) * 50) + col;
 
