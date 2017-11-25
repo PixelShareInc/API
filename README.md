@@ -46,7 +46,7 @@ $ mongod
 Then, in your original terminal window, navigate into the directory where you want to clone the repository and enter:
 
 ```
-$ git clone https://www.github.com/PixelShareInc/API.git
+$ git clone https://www.github.com/derekkramer/pixelshareAPI.git
 ```
 
 Navigate into the repository directory and install dependencies:
