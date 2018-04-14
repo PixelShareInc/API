@@ -17,8 +17,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-setInterval(() => writeImage(), 3600000);
-
 app.get('/', (req, res) => {
     MongoClient.connect(url, (err, db) => {
         if(err) throw err;
@@ -38,6 +36,7 @@ app.get('/image', (req, res) => {
                 if(err) console.error(err)
             });
         } else {
+            writeImage();
             res.send(null);
         }
     });
@@ -122,6 +121,8 @@ function writeImage() {
             db.close();
         });
     });
+
+    setInterval(() => writeImage(), 3600000);
 }
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
