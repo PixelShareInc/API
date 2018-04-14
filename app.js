@@ -123,6 +123,7 @@ function writeImage() {
         });
     })
     .then(() => {
+        console.log('Wrote image!');
         setInterval(() => writeImage(), 120000);
     });
 }
