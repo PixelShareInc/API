@@ -115,15 +115,15 @@ function writeImage() {
                     if(err) throw err;
 
                     db.close();
+
+                    console.log('Wrote image!');
+                    setInterval(() => writeImage(), 120000);
+
                     resolve();
                 }))
                 .catch(err => console.error(err));
             });
         });
-    })
-    .then(() => {
-        console.log('Wrote image!');
-        setInterval(() => writeImage(), 120000);
     });
 }
 
