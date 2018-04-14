@@ -127,7 +127,7 @@ function writeImage() {
         });
     })
     .then(() => {
-        setInterval(() => writeImage(), 3600000);
+        setInterval(() => writeImage(), 60000);
     });
 }
 
