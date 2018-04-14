@@ -31,14 +31,12 @@ app.get('/', (req, res) => {
 
 app.get('/image', (req, res) => {
     fs.stat('./quilt.png', (err, stat) => {
-        console.log(stat);
-	if(!err) {
+        if(!err) {
             res.sendFile(path.join(__dirname, 'quilt.png'), err => {
                 if(err) console.error(err)
             });
         } else {
-            writeImage();
-            res.send(null);
+            res.send(writeImage());
         }
     });
 });
