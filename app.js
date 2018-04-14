@@ -113,11 +113,10 @@ function writeImage() {
                 .then(() => svg2png(svg, { width: 1000, height: 1000 }))
                 .then(buffer => fs.writeFile("quilt.png", buffer, err => {
                     if(err) throw err;
-                }))
-                .then(() => {
+
                     db.close();
                     resolve();
-                })
+                }))
                 .catch(err => console.error(err));
             });
         });
