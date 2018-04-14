@@ -35,8 +35,6 @@ app.get('/image', (req, res) => {
             res.sendFile(path.join(__dirname, 'quilt.png'), err => {
                 if(err) console.error(err)
             });
-        } else {
-            res.send(writeImage());
         }
     });
 });
@@ -128,5 +126,7 @@ function writeImage() {
         setInterval(() => writeImage(), 60000);
     });
 }
+
+writeImage();
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
