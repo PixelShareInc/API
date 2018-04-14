@@ -91,38 +91,43 @@ function writeImage() {
     let svg = '<svg width="500" height="500" xmlns="https://www.w3.org/2000/svg" version="2" viewBox="0 0 500 500">';
     let iterator = 0;
 
-    MongoClient.connect(url, (err, db) => {
-        if(err) throw err;
-
-        db.collection('quilt').find({}, { _id: false, color: true }).toArray((err, result) => {
+    return new Promise((resolve, reject) => {
+        MongoClient.connect(url, (err, db) => {
             if(err) throw err;
 
-            Promise.resolve()
-            .then(() => {
-                for(let b = 0; b < 100; b++){
-                    for(let row = 0; row < 50; row++){
-                        let rowColors = result[iterator].color.split(',');
-
-                        for(let col = 0; col < 50; col++){
-                            svg += getSVG(b, row, col, rowColors[col]);
-                        }
-
-                        iterator++;
-                    }
-                }
-                svg += '</svg>';
-            })
-            .then(() => svg2png(svg, { width: 1000, height: 1000 }))
-            .then(buffer => fs.writeFile("quilt.png", buffer, err => {
+            db.collection('quilt').find({}, { _id: false, color: true }).toArray((err, result) => {
                 if(err) throw err;
-            }))
-            .catch(err => console.error(err));
 
-            db.close();
+                return Promise.resolve()
+                .then(() => {
+                    for(let b = 0; b < 100; b++){
+                        for(let row = 0; row < 50; row++){
+                            let rowColors = result[iterator].color.split(',');
+
+                            for(let col = 0; col < 50; col++){
+                                svg += getSVG(b, row, col, rowColors[col]);
+                            }
+
+                            iterator++;
+                        }
+                    }
+                    svg += '</svg>';
+                })
+                .then(() => svg2png(svg, { width: 1000, height: 1000 }))
+                .then(buffer => fs.writeFile("quilt.png", buffer, err => {
+                    if(err) throw err;
+                }))
+                .then(() => {
+                    db.close();
+                    resolve();
+                })
+                .catch(err => console.error(err));
+            });
         });
+    })
+    .then(() => {
+        setInterval(() => writeImage(), 3600000);
     });
-
-    setInterval(() => writeImage(), 3600000);
 }
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
