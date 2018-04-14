@@ -31,7 +31,8 @@ app.get('/', (req, res) => {
 
 app.get('/image', (req, res) => {
     fs.stat('./quilt.png', (err, stat) => {
-        if(!err) {
+        console.log(stat);
+	if(!err) {
             res.sendFile(path.join(__dirname, 'quilt.png'), err => {
                 if(err) console.error(err)
             });
