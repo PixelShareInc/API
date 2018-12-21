@@ -75,14 +75,14 @@ As it says in the terminal, the PixelShare development API is now available at `
 
 ##### &emsp;&emsp;&emsp;&emsp;&emsp; [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Node.js_logo_2015.svg/591px-Node.js_logo_2015.svg.png" height="50" align="top">](https://nodejs.org)
 ##### &emsp;&emsp;&emsp;&emsp;&emsp; [<img src="http://www.amt.in/img/services/express.png" height="50" align="top">](https://expressjs.com)
-##### &emsp;&emsp;&emsp;&emsp;&emsp; [<img src="https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAomAAAAJDQ1YTIwYmUxLWE2ZmYtNDI3NS04YmI5LTI2OTRiNzM4N2M1YQ.png" height="50" align="top">](http://www.socket.io)
+##### &emsp;&emsp;&emsp;&emsp;&emsp; [<img src="https://cdn-images-1.medium.com/max/1200/1*grduxDaLhR2W-JXPqNJ4uw.png" height="50" align="top">](http://www.socket.io)
 ##### &emsp;&emsp;&emsp;&emsp;&emsp; [<img src="https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png" height="50" align="top">](https://mongodb.com)
 
 ## <a name="License"><a>License
 
 The MIT License (MIT)
 
-Copyright &copy; 2017 Derek Kramer
+Copyright &copy; 2018 Derek Kramer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
