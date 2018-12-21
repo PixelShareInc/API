@@ -1,25 +1,25 @@
 {
-    "name": "PixelShareAPI",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "scripts": {
-        "start": "node app.js",
-        "forever": "forever start app.js",
-        "again": "forever restart app.js",
-        "stop": "forever stopall",
-        "test": "echo \"No test specified\" && exit 0"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.18.2",
-        "cors": "^2.8.4",
-        "express": "^4.16.1",
-        "forever": "^0.15.3",
-        "mongodb": "^2.2.31",
-        "socket.io": "^2.0.4",
-        "svg2png": "^4.1.1"
-    }
+  "name": "PixelShareAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "forever": "forever start app.js",
+    "again": "forever restart app.js",
+    "stop": "forever stopall",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.1",
+    "forever": "^0.15.3",
+    "mongodb": "^2.2.31",
+    "socket.io": "^2.0.4",
+    "svg2png": "^4.1.1"
+  }
 }
